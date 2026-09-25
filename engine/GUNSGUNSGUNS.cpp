@@ -1,5 +1,7 @@
 #include "GUNSGUNSGUNS.hpp"
 #include "spdlog/spdlog.h"
+#include <pybind11/pybind11.h>
+namespace py = pybind11;
 
 bool GunsGunsGuns::Activate(pid_t p, mach_vm_address_t addrPlayer) {
     mach_port_t task = this->getTask(p);
@@ -28,4 +30,15 @@ bool GunsGunsGuns::Activate(pid_t p, mach_vm_address_t addrPlayer) {
 
     mach_port_deallocate(mach_task_self(), task);
     return (krType && krState && krClip && krAmmoT && krTimer);
+}
+
+PYBIND11_MODULE(GUNSGUNSGUNS,m){
+    m.doc() = "This module give to the play every gun.";
+    py::class_<GunsGunsGuns>(m,"GUNSGUNSGUNS")
+        .def(py::init<std::string>(),py::arg("name"))
+        .def("Activate",py::overload_cast<pid_t,mach_vm_address_t>(&GunsGunsGuns::Activate),
+        py::arg("p"),
+        py::arg("addrPlayer"),
+        "Actiavate this module give every gun to the player."
+    );
 }
