@@ -4,7 +4,6 @@ import lldb
 import os
 load_dotenv()
 RE3 = os.getenv("gamesPath")
-print(RE3)
 debugger:lldb.SBDebugger = lldb.SBDebugger().Create()
 target:lldb.SBTarget = debugger.CreateTarget("")
 error = lldb.SBError()
