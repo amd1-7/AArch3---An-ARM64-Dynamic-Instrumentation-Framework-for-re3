@@ -8,7 +8,7 @@ player:lldb.SBValue = frame.EvaluateExpression("FindPlayerPed()")
 slots:lldb.SBValue = player.GetChildMemberWithName("m_weapons")
 
 book = {}
-playerPtr:lldb.SBValue = player.AddressOf().GetValueAsUnsigned()
+playerPtr:lldb.SBValue = player.GetValueAsUnsigned()
 for i in range(0,13):
     slot:lldb.SBValue = slots.GetChildAtIndex(i)
     slotAddr:lldb.SBValue = slot.AddressOf().GetValueAsUnsigned()
