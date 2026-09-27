@@ -8,6 +8,6 @@
             ~GesundHeit() = default;
 
             bool Activate() noexcept override {return false;}
-            bool Activate(pid_t p,mach_vm_address_t addrPlayer,float newValue);
+            bool Activate(pid_t p,mach_vm_address_t addrPlayer);
     };
 #endif
