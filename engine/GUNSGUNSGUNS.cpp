@@ -1,7 +1,5 @@
 #include "GUNSGUNSGUNS.hpp"
 #include "spdlog/spdlog.h"
-#include <pybind11/pybind11.h>
-namespace py = pybind11;
 
 bool GunsGunsGuns::Activate(pid_t p, mach_vm_address_t addrPlayer) {
     mach_port_t task = this->getTask(p);
