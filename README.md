@@ -11,10 +11,10 @@ lldb -P > "$(.venv/bin/python -c 'import site; print(site.getsitepackages()[0])'
 ## Reverse To-Do:
    | Effet                           | Code              |
 |----------------------------------|-------------------|
-| Obtenir toutes les armes         | `GUNSGUNSGUNS`    |
-| Restaurer la santé                | `GESUNDHEIT`      |
-| Armure complète                   | `TORTOISE`        |
-| Obtenir 250 000 dollars           | `IFIWEREARICHMAN` |
+| Obtenir toutes les armes         | `GUNSGUNSGUNS` ✅   |
+| Restaurer la santé                | `GESUNDHEIT`✅|
+| Armure complète                   | `TORTOISE`✅|
+| Obtenir 250 000 dollars           | `BITCH&MONEY`✅ |
 | Faire apparaître un tank          | `GIVEUSATANK`     |
 | Voitures volantes                 | `CHITTYCHITTYBB`  |
 | Tous les piétons attaquent        | `ITSALLGOINGMAAAD`|
