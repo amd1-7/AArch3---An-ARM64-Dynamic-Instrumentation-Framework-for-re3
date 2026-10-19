@@ -12,6 +12,9 @@ frame:lldb.SBFrame = thread.GetSelectedFrame()
 player:lldb.SBValue = frame.EvaluateExpression("FindPlayerPed()")
 playerPtr:lldb.SBValue = player.GetValueAsUnsigned()
 
+playerInfo = frame.EvaluateExpression("CWorld::Players[0]")
+playerInfoPtr = playerInfo.AddressOf().GetValueAsUnsigned()
+
 if not playerPtr:
     logger.error("[LLDB_READ.py] error get playter's pointer")
     exit()
