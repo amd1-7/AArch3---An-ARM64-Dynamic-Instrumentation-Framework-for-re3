@@ -18,5 +18,8 @@
             mach_port_t getTask(pid_t p);
             bool modifyValue(mach_port_t p,mach_vm_address_t addr,float newValue);
             bool modifyValue(mach_port_t p,mach_vm_address_t addr,int newValue);
+
+            template <typename T>
+            bool readValue(mach_port_t p,mach_vm_address_t addr,T& valueOutput);
 };
 #endif

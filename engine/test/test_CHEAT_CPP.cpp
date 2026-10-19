@@ -19,4 +19,18 @@ TEST(CheatsNativeFonction,ModifyValueWithAddr){
 
     spdlog::info("[test_CHEAT_CPP.cpp] success modify value");
 }
+int x = 20;
+mach_vm_address_t addr2 = (mach_vm_address_t)&x;
+TEST(CheatsNativeFonction,ReadValueWithAddr){
+    pid_t pid = getpid();
+    Cheat cheat = Cheat("test",Type::Once);
+    mach_port_t task = cheat.getTask(pid);
+    ASSERT_TRUE(task != TASK_NULL);
+
+    int output = 0;
+    bool read = cheat.readValue(task,addr2,output);
+
+    ASSERT_TRUE(read);
+    ASSERT_TRUE(output == x);
+}
 
